@@ -1,0 +1,26 @@
+{
+  "name": "io.glitchr.studio",
+  "displayName": "Glitch Art Studio",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "description": "The base every Glitch Art project starts from: it brings the team's packages as dependencies - Glitch Art Toolkit (the shared editor tools) and Forge Store (the package store, connected to Glitch Art's Forge). It holds no code of its own.",
+  "documentationUrl": "https://github.com/glitchr-studio/unity-studio#readme",
+  "changelogUrl": "https://github.com/glitchr-studio/unity-studio/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/glitchr-studio/unity-studio/blob/main/LICENSE.md",
+  "keywords": [
+    "glitchr",
+    "studio",
+    "toolkit",
+    "forge"
+  ],
+  "author": {
+    "name": "Marco Meyer",
+    "email": "marco.meyer@glitchr.io",
+    "url": "https://glitchr.io"
+  },
+  "dependencies": {
+    "io.glitchr.toolkit": "0.3.0",
+    "io.glitchr.store": "1.0.0"
+  },
+  "license": "MIT"
+}
