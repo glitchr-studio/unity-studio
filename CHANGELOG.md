@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1
+
+The kit installs Glitch Art Toolkit 0.4.0 (Hierarchy icons from the rules packages register, and Unity 6.3's entity
+IDs without obsolete warnings).
+
 ## 0.3.0
 
 The kit: each source of the `"hub"` section names its package (`"package"`), and the ones every project gets are

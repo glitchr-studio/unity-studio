@@ -23,7 +23,7 @@ Or by hand, in Unity:
 1. Add Forge Store to the project, from its Git URL (Package Manager > + > Add package from git URL):
    `https://github.com/glitchr-forge/unity-store.git`
 2. In Window > Forge Store > Sources, add this package as a Git package:
-   `https://github.com/glitchr-studio/unity-studio.git#v0.3.0`
+   `https://github.com/glitchr-studio/unity-studio.git#v0.3.1`
 3. Forge Store lists the catalogue's packages; install the ones the project needs.
 
 ## The `"hub"` section
@@ -38,7 +38,7 @@ every project gets:
   "version": 1,
   "name": "Glitch Art",
   "sources": [
-    {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.3.0",
+    {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.4.0",
      "package": "io.glitchr.toolkit", "install": true}
   ]
 }

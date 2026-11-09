@@ -1,7 +1,7 @@
 {
   "name": "io.glitchr.studio",
   "displayName": "Glitch Art Studio",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "unity": "6000.0",
   "description": "The base every Glitch Art project starts from. Its \"hub\" section is Glitch Art's catalogue for Forge Store: Glitch Art Toolkit (the shared editor tools), Forge Store (the package store) and Forge Seal (licence checks for games). It holds no code of its own.",
   "documentationUrl": "https://github.com/glitchr-studio/unity-studio#readme",
@@ -26,7 +26,7 @@
     "logo": "https://avatars.githubusercontent.com/u/130585112?v=4",
     "color": "#fc6875",
     "sources": [
-      {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.3.0", "package": "io.glitchr.toolkit", "install": true},
+      {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.4.0", "package": "io.glitchr.toolkit", "install": true},
       {"name": "Forge Store", "type": "git", "url": "https://github.com/glitchr-forge/unity-store.git", "package": "io.glitchr.store", "install": true},
       {"name": "Forge Seal", "type": "git", "url": "https://github.com/glitchr-forge/unity-licensing.git", "package": "io.glitchr.licensing"}
     ]
