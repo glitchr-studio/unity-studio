@@ -1,33 +1,42 @@
 # Glitch Art Studio (`io.glitchr.studio`)
 
-The package every Glitch Art project starts from. It has no code of its own: it brings the team's packages as
-dependencies.
+The package every Glitch Art project starts from. It has no code of its own. Its `package.json` is also Glitch Art's
+catalogue: the `"hub"` section, which Unity ignores and [Forge Store](https://github.com/glitchr-forge/unity-store)
+reads.
 
 | Package | What it is |
 |---|---|
 | `io.glitchr.toolkit` - Glitch Art Toolkit | The shared editor tools: orbit camera, Scene-view TextMesh Pro editing, Dock icon, studio layout, package publisher, MCP for Unity extensions ([glitchr-studio/unity-toolkit](https://github.com/glitchr-studio/unity-toolkit)) |
 | `io.glitchr.store` - Forge Store | The package store in the editor, connected to Glitch Art's Forge ([glitchr-forge/unity-store](https://github.com/glitchr-forge/unity-store)) |
+| `io.glitchr.licensing` - Forge Seal | Licence checks for a game sold through a Forge: a game adds it itself ([glitchr-forge/unity-licensing](https://github.com/glitchr-forge/unity-licensing)) |
 
-Not included, on purpose:
-
-- **Forge Seal** (`io.glitchr.licensing`): a game sold with a licence adds it itself.
-- **Tile Weaver** (`io.glitchr.tileweaver`): only the projects that use it.
-- **MCP for Unity**: installed from Git (Marco's fork), which a package cannot depend on. Each project lists it in
-  its `manifest.json`.
+Not listed: Tile Weaver (`io.glitchr.tileweaver`), only in the projects that use it, and MCP for Unity, installed from
+Marco's fork by each project's `manifest.json`.
 
 ## Install
 
-Unity resolves a package's dependencies from a registry only, never from Git. Until Glitch Art's Forge serves the
-`io.glitchr.*` packages as a scoped registry, list the dependencies next to this package in `Packages/manifest.json`:
+1. Add Forge Store to the project, from its Git URL (Package Manager > + > Add package from git URL):
+   `https://github.com/glitchr-forge/unity-store.git`
+2. In Window > Forge Store > Sources, add this package as a Git package:
+   `https://github.com/glitchr-studio/unity-studio.git#v0.2.0`
+3. Forge Store lists the catalogue's packages; install the ones the project needs.
+
+## The `"hub"` section
+
+The same document as a hub's `hub.json` (Forge Store's
+[docs/sources.md](https://github.com/glitchr-forge/unity-store/blob/main/docs/sources.md)), kept in the package so a
+tag freezes the list:
 
 ```json
-"io.glitchr.studio": "https://github.com/glitchr-studio/unity-studio.git#v0.1.0",
-"io.glitchr.toolkit": "https://github.com/glitchr-studio/unity-toolkit.git#v0.3.0",
-"io.glitchr.store": "https://github.com/glitchr-forge/unity-store.git"
+"hub": {
+  "version": 1,
+  "name": "Glitch Art",
+  "sources": [
+    {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.3.0"}
+  ]
+}
 ```
 
-Once the Forge's registry is online, the scoped registry and the first line are enough:
-
-```json
-"scopedRegistries": [{ "name": "Glitch Art", "url": "https://<forge>/upm", "scopes": ["io.glitchr"] }]
-```
+`dependencies` stays empty for now: Unity resolves a package's dependencies from a registry only, never from Git.
+Once Glitch Art's Forge serves the `io.glitchr.*` packages as a scoped registry, the package will depend on the
+toolkit and the store, and installing it alone will bring them.
