@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+The kit: each source of the `"hub"` section names its package (`"package"`), and the ones every project gets are
+marked `"install": true` - Glitch Art Toolkit and Forge Store; Forge Seal stays in the catalogue, for the games that
+sell. Forge Hub's Prepare for Glitch Art writes those into a project's manifest in one click.
+
 ## 0.2.0
 
 The package is Glitch Art's catalogue: its `package.json` has a `"hub"` section (the format of a hub's `hub.json`)

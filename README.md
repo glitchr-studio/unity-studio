@@ -15,24 +15,31 @@ Marco's fork by each project's `manifest.json`.
 
 ## Install
 
+In Forge Hub, **Prepare for Glitch Art** on a project writes the packages every project gets into its
+`Packages/manifest.json` (the sources marked `"install": true` below); what the project has already is kept.
+
+Or by hand, in Unity:
+
 1. Add Forge Store to the project, from its Git URL (Package Manager > + > Add package from git URL):
    `https://github.com/glitchr-forge/unity-store.git`
 2. In Window > Forge Store > Sources, add this package as a Git package:
-   `https://github.com/glitchr-studio/unity-studio.git#v0.2.0`
+   `https://github.com/glitchr-studio/unity-studio.git#v0.3.0`
 3. Forge Store lists the catalogue's packages; install the ones the project needs.
 
 ## The `"hub"` section
 
 The same document as a hub's `hub.json` (Forge Store's
 [docs/sources.md](https://github.com/glitchr-forge/unity-store/blob/main/docs/sources.md)), kept in the package so a
-tag freezes the list:
+tag freezes the list. `"package"` names a source's package without reading it; `"install": true` marks the ones
+every project gets:
 
 ```json
 "hub": {
   "version": 1,
   "name": "Glitch Art",
   "sources": [
-    {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.3.0"}
+    {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.3.0",
+     "package": "io.glitchr.toolkit", "install": true}
   ]
 }
 ```
