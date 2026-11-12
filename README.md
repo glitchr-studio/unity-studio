@@ -1,8 +1,19 @@
 # Glitch Art Studio (`io.glitchr.studio`)
 
-The package every Glitch Art project starts from. It has no code of its own. Its `package.json` is also Glitch Art's
-catalogue: the `"hub"` section, which Unity ignores and [Forge Store](https://github.com/glitchr-forge/unity-store)
-reads.
+The package every Glitch Art project starts from. It has no code of its own. It depends on
+[Forge Store](https://github.com/glitchr-forge/unity-store) (`io.glitchr.store`), the open-source package store, and is
+its Glitch Art preset: the `"hub"` section of its `package.json`, which Unity ignores and Forge Store reads from the
+disk as soon as this package is in the project. Forge Store itself stays neutral; everything Glitch Art is here, as
+data:
+
+- **Glitch Art's Forge**: the hub manifest `https://glitchr.io/upm/-/hub.json` (the `io.glitchr` registry, its
+  catalogue and its checkout);
+- **Glitch Art on GitHub**: the repositories of `glitchr-forge` named `unity-*` that are UPM packages. The public ones
+  are listed for everyone; the private ones need a GitHub token that can read them (Forge Store > Sources > GitHub);
+- the packages below, by their Git URLs;
+- the **theme**: Glitch Art's coral accent and logo in the window's header.
+
+A user can hide the preset in Forge Store's Sources and add their own sources beside it.
 
 | Package | What it is |
 |---|---|
@@ -18,13 +29,20 @@ Marco's fork by each project's `manifest.json`.
 In Forge Hub, **Prepare for Glitch Art** on a project writes the packages every project gets into its
 `Packages/manifest.json` (the sources marked `"install": true` below); what the project has already is kept.
 
-Or by hand, in Unity:
+Or by hand, in `Packages/manifest.json` - Forge Store first, then this package:
 
-1. Add Forge Store to the project, from its Git URL (Package Manager > + > Add package from git URL):
-   `https://github.com/glitchr-forge/unity-store.git`
-2. In Window > Forge Store > Sources, add this package as a Git package:
-   `https://github.com/glitchr-studio/unity-studio.git#v0.3.1`
-3. Forge Store lists the catalogue's packages; install the ones the project needs.
+```json
+"io.glitchr.store": "https://github.com/glitchr-forge/unity-store.git",
+"io.glitchr.studio": "https://github.com/glitchr-studio/unity-studio.git#v0.4.0"
+```
+
+Window > Forge Store then shows Glitch Art's sources; install the packages the project needs.
+
+The dependency on `io.glitchr.store` is declared, but Unity resolves a package's dependencies from a registry only,
+never from Git. Checked with Unity 6000.3.28f1: when the project lists `io.glitchr.store` itself (from Git or a
+folder), that entry wins whatever version this package asks for; without it, the project's packages fail to resolve
+("Package [io.glitchr.store@1.2.0] cannot be found"). So list both, as above, until Glitch Art's Forge serves the
+`io.glitchr.*` packages as a scoped registry: then this package alone brings the store.
 
 ## The `"hub"` section
 
@@ -44,6 +62,11 @@ every project gets:
 }
 ```
 
-`dependencies` stays empty for now: Unity resolves a package's dependencies from a registry only, never from Git.
-Once Glitch Art's Forge serves the `io.glitchr.*` packages as a scoped registry, the package will depend on the
-toolkit and the store, and installing it alone will bring them.
+The preset's other sources, in the same section:
+
+```json
+{"name": "Glitch Art Forge", "type": "manifest", "url": "https://glitchr.io/upm/-/hub.json"},
+{"name": "Glitch Art on GitHub", "type": "github", "owner": "glitchr-forge", "pattern": "unity-*"}
+```
+
+and its look: `"theme": {"accent": "#fc6875", "accentDark": "#fc6875", "logo": "..."}`.

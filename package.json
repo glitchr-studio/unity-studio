@@ -1,9 +1,9 @@
 {
   "name": "io.glitchr.studio",
   "displayName": "Glitch Art Studio",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "unity": "6000.0",
-  "description": "The base every Glitch Art project starts from. Its \"hub\" section is Glitch Art's catalogue for Forge Store: Glitch Art Toolkit (the shared editor tools), Forge Store (the package store) and Forge Seal (licence checks for games). It holds no code of its own.",
+  "description": "The base every Glitch Art project starts from. It depends on Forge Store and is its Glitch Art preset: its \"hub\" section lists Glitch Art's Forge, the glitchr-forge repositories named unity-* on GitHub, Glitch Art Toolkit (the shared editor tools), Forge Store and Forge Seal (licence checks for games), with Glitch Art's look. It holds no code of its own.",
   "documentationUrl": "https://github.com/glitchr-studio/unity-studio#readme",
   "changelogUrl": "https://github.com/glitchr-studio/unity-studio/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/glitchr-studio/unity-studio/blob/main/LICENSE.md",
@@ -18,17 +18,22 @@
     "email": "marco.meyer@glitchr.io",
     "url": "https://glitchr.io"
   },
-  "dependencies": {},
+  "dependencies": {
+    "io.glitchr.store": "1.2.0"
+  },
   "license": "MIT",
   "hub": {
     "version": 1,
     "name": "Glitch Art",
     "logo": "https://avatars.githubusercontent.com/u/130585112?v=4",
     "color": "#fc6875",
+    "theme": {"accent": "#fc6875", "accentDark": "#fc6875", "logo": "https://avatars.githubusercontent.com/u/130585112?v=4"},
     "sources": [
       {"name": "Glitch Art Toolkit", "type": "git", "url": "https://github.com/glitchr-studio/unity-toolkit.git#v0.4.0", "package": "io.glitchr.toolkit", "install": true},
       {"name": "Forge Store", "type": "git", "url": "https://github.com/glitchr-forge/unity-store.git", "package": "io.glitchr.store", "install": true},
-      {"name": "Forge Seal", "type": "git", "url": "https://github.com/glitchr-forge/unity-licensing.git", "package": "io.glitchr.licensing"}
+      {"name": "Forge Seal", "type": "git", "url": "https://github.com/glitchr-forge/unity-licensing.git", "package": "io.glitchr.licensing"},
+      {"name": "Glitch Art Forge", "type": "manifest", "url": "https://glitchr.io/upm/-/hub.json"},
+      {"name": "Glitch Art on GitHub", "type": "github", "owner": "glitchr-forge", "pattern": "unity-*"}
     ]
   }
 }
