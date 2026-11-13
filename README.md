@@ -6,8 +6,6 @@ its Glitch Art preset: the `"hub"` section of its `package.json`, which Unity ig
 disk as soon as this package is in the project. Forge Store itself stays neutral; everything Glitch Art is here, as
 data:
 
-- **Glitch Art's Forge**: the hub manifest `https://glitchr.io/upm/-/hub.json` (the `io.glitchr` registry, its
-  catalogue and its checkout);
 - **Glitch Art on GitHub**: the repositories of `glitchr-forge` named `unity-*` that are UPM packages. The public ones
   are listed for everyone; the private ones need a GitHub token that can read them (Forge Store > Sources > GitHub);
 - the packages below, by their Git URLs;
@@ -33,7 +31,7 @@ Or by hand, in `Packages/manifest.json` - Forge Store first, then this package:
 
 ```json
 "io.glitchr.store": "https://github.com/glitchr-forge/unity-store.git",
-"io.glitchr.studio": "https://github.com/glitchr-studio/unity-studio.git#v0.4.0"
+"io.glitchr.studio": "https://github.com/glitchr-studio/unity-studio.git#v0.4.1"
 ```
 
 Window > Forge Store then shows Glitch Art's sources; install the packages the project needs.
@@ -62,10 +60,9 @@ every project gets:
 }
 ```
 
-The preset's other sources, in the same section:
+The preset's other source, in the same section:
 
 ```json
-{"name": "Glitch Art Forge", "type": "manifest", "url": "https://glitchr.io/upm/-/hub.json"},
 {"name": "Glitch Art on GitHub", "type": "github", "owner": "glitchr-forge", "pattern": "unity-*"}
 ```
 

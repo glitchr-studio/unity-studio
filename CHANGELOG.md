@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1
+
+The preset's catalogue is the GitHub source alone, `glitchr-forge` / `unity-*`: the Forge manifest source is removed
+until Glitch Art's Forge is online.
+
 ## 0.4.0
 
 The Glitch Art preset of Forge Store 1.2.0, which no longer has any source built in:
